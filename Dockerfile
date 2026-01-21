@@ -10,6 +10,9 @@ RUN git clone "https://github.com/160Swiftly/image_classification_demo.git" /app
 #Select working directory
 WORKDIR /app 
 
+#Copy all file into working directory
+COPY . /app
+
 #Install dependencies 
 RUN pip install -r requirements.txt 
 
