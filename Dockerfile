@@ -5,7 +5,7 @@ FROM python:3.10-slim
 RUN apt-get update && apt-get install -y git
 
 #Get source files from repo
-RUN git clone "https://github.com/anithselva/image_classification_demo.git" /app
+RUN git clone "https://github.com/160Swiftly/image_classification_demo.git" /app
 
 #Select working directory
 WORKDIR /app 
