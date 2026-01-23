@@ -84,6 +84,7 @@ docker build -t streamlit-app .
 ```
 
 Run the container
+The -p flag is used to specify the port (In this case 8501)
 ```bash
 docker run -p 8501:8501 streamlit-app
 ```
