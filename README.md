@@ -71,3 +71,45 @@ image_classification_app/
 - **Import errors:** Make sure all dependencies are installed (`pip install -r requirements.txt`)
 - **Port already in use:** Streamlit will try to use port 8501. If busy, it will use the next available port
 - **Model download issues:** Ensure you have an internet connection for the first run
+
+## Docker Instructions
+
+Prerequisites
+- Docker installed (Docker Desktop or Docker Engine)
+- Build the Docker image
+
+From the project root (where the Dockerfile is located):
+```bash
+docker build -t streamlit-app .
+```
+
+Run the container
+The -p flag is used to specify the port (In this case 8501)
+```bash
+docker run -p 8501:8501 streamlit-app
+```
+
+Once running, open your browser and navigate to:
+
+http://localhost:8501
+
+Notes
+- Streamlit runs on port 8501 by default.
+- The container maps port 8501 inside the container to 8501 on the host.
+- Ensure your Streamlit app is configured to bind to 0.0.0.0, not localhost, when running in Docker.
+
+Example (if specified explicitly):
+```bash
+streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+```
+
+Optional: Run in detached mode
+```bash
+docker run -d -p 8501:8501 streamlit-app
+```
+
+To stop the container:
+```bash
+docker ps
+docker stop <container_id>
+```
